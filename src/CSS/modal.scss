@@ -1,0 +1,127 @@
+.modal {
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    z-index: 1000;
+    transition: opacity 0.3s ease, visibility 0.3s ease, z-index 0.3s ease; 
+    max-width: 100%;
+    // pointer-events: none;
+
+
+    &:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -0.25em;
+    }
+
+    .modal--container {
+        display: inline-block;
+        background: #fff;
+        color: #323232;
+        margin: 2em 0;
+        // max-width: 80%;
+        min-width: 600px;
+        // padding: 40px;
+        position: relative;
+        text-align: left;
+        vertical-align: middle;
+        width: 85vw;
+        overflow: hidden;
+        box-shadow: 0px 0px 106px 0px rgba(0, 0, 0, 0.6); 
+        border-radius: 5px;
+        pointer-events: auto;
+        -webkit-animation: outOfAppBlock 1s ease;
+        -webkit-transform-style: preserve-3d;
+        // transform-origin: bottom right;
+
+        .ant-layout-footer { 
+            text-align: right; 
+        }
+
+        .modal--close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            // background: #666;
+            font-size: 20px;
+            // color: #fff;
+            text-align: center;
+            font-weight: bold;
+            padding: 2px 9px 5px;
+            line-height: 1;
+        }
+
+    }
+
+    .content-area {
+        max-height: 100%;
+        overflow: auto;
+        // padding: 20px 0;
+    }
+
+    &.modal--state--closing .modal--container {
+        -webkit-animation: inToAppBlock 1s ease;
+        opacity: 0;
+    }
+
+
+}
+
+
+/* Animation */
+// @-webkit-keyframes outOfAppBlock {
+//   0% { opacity: 0; -webkit-transform: rotateX(58deg) rotateZ(-42deg) translateX(-380px) translateY(83px) scale(0.2); box-shadow: none;  }  
+//   50% { opacity: 1; }  
+//   100% { -webkit-transform: rotateX(0deg) rotateZ(0deg) translateX(0px) translateY(0px) scale(1.0);  }
+// }
+
+// @-webkit-keyframes inToAppBlock {
+//   0% { opacity: 1; }  
+//   50% {  }  
+//   100% { opacity: 0; -webkit-transform: rotateX(58deg) rotateZ(-42deg) translateX(-380px) translateY(83px) scale(0.2); box-shadow: none;  }
+// }
+
+// @-webkit-keyframes outOfAppBlock {
+//   0% { -webkit-transform: rotateX(58deg) rotateZ(-42deg) translateX(220%); }  
+//   50% { -webkit-transform: rotateX(58deg) rotateZ(-42deg) translateX(0px); }  
+//   100% { -webkit-transform: rotateX(0deg) rotateZ(0deg);  }
+// }
+
+
+// @-webkit-keyframes inToAppBlock {
+//   0% { opacity: 1; -webkit-transform: rotateX(0deg) rotateZ(0deg); }  
+//   50% { -webkit-transform: rotateX(58deg) rotateZ(-42deg) translateX(0px); }  
+//   100% { opacity: 1; -webkit-transform: rotateX(58deg) rotateZ(-42deg) translateX(-220%);  }
+// }
+// 
+@-webkit-keyframes outOfAppBlock {
+  0% { opacity: 0; }  
+  30% { opacity: 1;  }
+}
+
+
+@-webkit-keyframes inToAppBlock {
+  0% { opacity: 1; }  
+  30% { opacity: 0; }
+}
+
+.section {
+    display: flex;
+    min-height: 85vh;
+    .section--sidebar {
+        flex: 1;
+        background-size: cover;
+    }
+    .section--content {
+        flex: 2;
+        padding: 40px;
+    }
+}
+
+

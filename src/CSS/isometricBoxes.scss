@@ -1,0 +1,253 @@
+// make Box color
+@mixin boxColor($boxColor) {
+  > div
+  {
+     background-color: $boxColor;
+     background: linear-gradient(-45deg, darken($boxColor, 10%) 0%, darken($boxColor, 10%) 50%, darken($boxColor, 20%) 50%, darken($boxColor, 20%) 100%);
+    
+    &:first-child { background: $boxColor; }
+  }
+}
+
+
+// Isometric whole container
+.isometricContainer {
+  position: fixed;
+  width: 100%;
+  height: auto;
+  bottom: -720px;
+  right: -400px;
+}
+.isometric
+{
+    width: 2200px;
+    height: 2200px;
+    min-height: 2200px;
+    min-width: 2200px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    // zoom: 1.20;
+  // -webkit-transform: rotateX(45deg) rotateZ(-45deg); // true isometric
+  -webkit-transform: rotateX(58deg) rotateZ(-42deg); // 3Dish isometric
+  -webkit-transform-style: preserve-3d;
+  transform-origin: bottom bottom;
+  .appBlock {
+    -webkit-animation: bounceInDown 2s ease-in-out;
+    > div:last-child {
+      -webkit-animation: shadow 2s ease-in-out;
+    }
+  }
+  .react-grid-item {
+    transition: all 1s ease-in-out;
+    padding: 12px;
+  }
+  .react-grid-item:nth-child(3n+2) .appBlock
+  {
+    -webkit-animation: bounceInDown2 2s ease-in-out;
+    // animation-duration: 1.5s;
+    // > div:last-child { animation-duration: 1.5s; }
+  }
+}
+
+.appBlockBG
+{
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+
+.appBlock
+{
+  position: relative;
+  height: 100%;
+  .face > * { width: 100px; }
+
+  > div
+  { 
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+    text-align: center;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    
+    // Depths   
+    &:first-child { z-index:100; }
+    &:nth-child(2) { z-index:99; top: 1px; right: 1px; }
+    &:nth-child(3) { z-index:98; top: 2px; right: 2px; }
+    &:nth-child(4) { z-index:97; top: 3px; right: 3px; }
+    &:nth-child(5) { z-index:96; top: 4px; right: 4px; }
+    &:nth-child(6) { z-index:95; top: 5px; right: 5px; }
+    &:nth-child(7) { z-index:94; top: 6px; right: 6px; }
+    &:nth-child(8) { z-index:93; top: 7px; right: 7px; }
+    &:last-child { 
+      z-index:0; box-shadow: -5px 2px 6px 0px rgba(0,0,0,0.6); 
+    }
+  }
+
+  &.appBlock-shape-circle > div { border-radius: 100%; }
+  &.appBlock-shape-browser {
+    height: 130px !important; // ! to override inline style
+    margin-top: 40px;
+    width: 110%;
+    // right: -204px;
+  }
+  
+  // COLORS
+
+  &.appBlock-empty {
+    @include boxColor(#1c5cdd);
+    opacity: 0.5;
+
+    &.appBlock-shape-vRect {
+      @include boxColor(#2a68e7);
+    }
+    &.appBlock-shape-hRect {
+      @include boxColor(#1d5cdf);
+    }
+    &.appBlock-shape-bigSquare {
+      @include boxColor(#1648ad);
+    }
+  }
+
+  &.appBlock-twitter {
+    @include boxColor(#39aeef);
+    .face > * { width: 80px; }
+    svg
+    {
+      path { fill: #fff; }
+    }
+  }
+
+  &.appBlock-wordpress {
+    @include boxColor(#3682a0);
+    .face > * { width: 120px; }
+    svg
+    {
+      path { fill: #fff; }
+    }
+  }
+
+  &.appBlock-instagram {
+    @include boxColor(#c34a8d);
+    .face > * { width: 80px; }
+    svg
+    {
+      path { fill: #fff; }
+    }
+  }
+
+  &.appBlock-youtube {
+    @include boxColor(#cf2a31);
+    svg
+    {
+      path { fill: #fff; }
+    }
+  }
+
+  &.appBlock-facebook {
+    @include boxColor(#48689d);
+    .face > * { width: 50px; }
+    svg
+    {
+      path { fill: #fff; }
+    }
+  }
+
+  &.appBlock-amazon {
+    @include boxColor(#fba23b);
+    .face > * { width: 130px; }
+    svg
+    {
+      path { fill: #fff; }
+    }
+  }
+
+  &.appBlock-google {
+    @include boxColor(#fff);
+    .face > * { width: 80px; }
+  }
+
+}
+
+
+/* appBlockBrowser */
+.appBlock.appBlock-shape-browser {
+  $boxColor: #fff;
+  opacity: 1;
+
+  > div
+  {
+     background-color: $boxColor;
+     background: linear-gradient(to bottom, darken(#dbd7d4, 20%) 0%,darken(#dbd7d4, 20%) 30%,#000000 30%,rgba(0,0,0,0) 30%,rgba(0,0,0,0) 100%), linear-gradient(-10.5deg, darken($boxColor, 10%) 0%, darken($boxColor, 10%) 50%, darken($boxColor, 30%) 50%, darken($boxColor, 30%) 100%);
+    
+    &:first-child { background: $boxColor; }
+  }
+}
+.appBlockBrowser {
+  width: 100% !important;
+  height: 100%;
+  .appBlockBrowser--topbar {
+    background: #dbd7d4;
+    height: 30%;
+    padding: 8px;
+    text-align: left;
+    .appBlockBrowser--topbar-icon {
+      border-radius: 100%;
+      width: 20px; height: 20px;
+      background: #f96462;
+      display: inline-block;
+      margin: 0 10px 0 0;
+
+      &:nth-child(2) { background: #fbbd4e; }
+      &:nth-child(3) { background: #3ec952; }
+    }
+  }
+
+  .appBlockBrowser--addressArea {
+    background: #f2f2f2;
+    height: 70%;
+    padding: 20px;
+    .appBlockBrowser--addressArea-url {
+      background: #fff;
+      border: 1px solid #d7d3d0;
+      color: #383838;
+      padding: 15px;
+      text-align: left;
+      font-size: 1.2em;
+    }
+  }
+}
+
+
+/* Animation */
+@-webkit-keyframes bounceInDown {
+  0% { opacity: 0; transform: translateX(20px) translateY(-20px); }  
+  50% { opacity: 1; }  
+  80% { transform: translateX(-3px) translateY(3px); }
+  100% { transform: translateX(0) translateY(0);  }
+}
+
+@-webkit-keyframes bounceInDown2 {
+  0% { opacity: 0; transform: translateX(40px) translateY(-40px); }  
+  50% { opacity: 1; }  
+  80% { transform: translateX(-3px) translateY(3px); }
+  100% { transform: translateZ(0); }
+}
+
+@-webkit-keyframes shadow {
+  0% { box-shadow: -4px 2px 60px 0px rgba(0,0,0,0.5); }    
+  75% { box-shadow: -2px 1px 4px 0px rgba(0,0,0,1); }
+}
