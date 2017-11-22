@@ -104,7 +104,7 @@ class CareerPage extends Component {
         formData.append('fileCV', this.state.fileCV);
 
         // backend request
-        fetch('http://localhost:3000/career/apply', {
+        fetch('http://localhost:3000/api/career/application/add', {
             method: 'POST',
             body: formData
         })

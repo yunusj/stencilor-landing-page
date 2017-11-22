@@ -1,9 +1,13 @@
 let path = require('path');
 
+let publicDir = path.resolve('../../public');
+let currentFolder = __dirname.split(path.sep).pop();
+let outputDir = publicDir + path.sep + currentFolder + path.sep + 'assets' + path.sep + 'js';
+
 module.exports = {
     entry: './src/index.js',
     output: {
-        path: path.resolve('dist'),
+        path: outputDir,
         filename: 'bundle.js'
     },
     watch: true,
