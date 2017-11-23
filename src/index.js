@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import 'whatwg-fetch'
 
 import { DatePicker } from 'antd'
 import Styles from "./CSS/style.scss";
@@ -9,11 +8,10 @@ import LandingPage from "./Components/LandingPage";
 import AppBlocksContainer from "./Components/AppBlocksContainer";
 import Modal from "./Components/reusableComponents/Modal";
 
-const mountPoint = document.querySelector('#stencil');
 const temp = { DatePicker };
 let inQueue = false;
 
-class MainContainer extends Component {
+export default class MainContainer extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -116,5 +114,3 @@ class MainContainer extends Component {
         )
     }
 }
-
-ReactDOM.render(<MainContainer />, mountPoint)

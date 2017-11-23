@@ -2,19 +2,50 @@ let path = require('path');
 
 let publicDir = path.resolve('../../public');
 let currentFolder = __dirname.split(path.sep).pop();
-let outputDir = publicDir + path.sep + currentFolder + path.sep + 'assets' + path.sep + 'js';
+let outputDir = path.join(__dirname, '../', '../', 'public', currentFolder, 'assets', 'js');
+
+var webpack = require('webpack');
+
+var isDevelopment = process.argv.indexOf('--development') !== -1;
+
+var entryPath = path.join(__dirname, 'src/APP.js');
+console.log('outputDir', outputDir );
+console.log('entryPath', entryPath);
+console.log('isDevelopment', isDevelopment);
+console.log('node_modules path', path.join(__dirname, 'node_modules'));
+console.log('__dirname', __dirname);
+
+var entry = isDevelopment ? [
+  'webpack-hot-middleware/client?reload=true',
+  'react-hot-loader/patch',
+  entryPath
+] : entryPath;
+
+var plugins = [
+  new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify(isDevelopment ? 'development' : 'production'),
+    __DEV__: isDevelopment
+  }),
+    new webpack.LoaderOptionsPlugin({
+       debug: isDevelopment
+     })
+];
+
+isDevelopment && plugins.push(new webpack.HotModuleReplacementPlugin());
+
 
 module.exports = {
-    entry: './src/index.js',
+    entry: entry,
     output: {
         path: outputDir,
         filename: 'bundle.js'
     },
-    watch: true,
-    
-    devServer : {
-        contentBase : './dist'
+    resolve: {
+        extensions: ['.js', '.jsx'],
+        modules: ['node_modules', path.join(__dirname, 'node_modules')]
     },
+    context: __dirname,
+    watch: true,
     module: {
         rules: [
             {
@@ -53,6 +84,6 @@ module.exports = {
             }
         ]
     },
-
+    plugins: plugins
 
 }
