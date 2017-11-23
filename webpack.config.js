@@ -1,8 +1,14 @@
 let path = require('path');
+const fs  = require('fs');
+const lessToJs = require('less-vars-to-js');
 
 let publicDir = path.resolve('../../public');
 let currentFolder = __dirname.split(path.sep).pop();
-let outputDir = publicDir + path.sep + currentFolder + path.sep + 'assets' + path.sep + 'js';
+let outputDir = path.join(__dirname, '../', '../', 'public', currentFolder, 'assets', 'js');
+
+
+const themeVariables = lessToJs(fs.readFileSync(path.join(__dirname, 'src/CSS/ANT.less'), 'utf8'));
+
 
 module.exports = {
     entry: './src/index.js',
@@ -25,7 +31,7 @@ module.exports = {
                     presets: ['env', 'es2015', 'stage-1', 'react'],
 
                     plugins: [
-                        "transform-decorators-legacy", "transform-class-properties", "transform-object-rest-spread", ["import", { libraryName: "antd", style: "css" }]
+                        "transform-decorators-legacy", "transform-class-properties", "transform-object-rest-spread", ["import", { libraryName: "antd", style: true }]
                     ],
 
                 },
@@ -38,6 +44,19 @@ module.exports = {
                     loader: "css-loader" // translates CSS into CommonJS
                 }, {
                     loader: "sass-loader" // compiles Sass to CSS
+                }]
+            },
+            {
+                test: /\.(less|LESS)$/,
+                use: [{
+                    loader: "style-loader" // creates style nodes from JS strings
+                }, {
+                    loader: "css-loader" // translates CSS into CommonJS
+                }, {
+                    loader: "less-loader",
+                    options: {
+                        modifyVars: themeVariables
+                    }
                 }]
             },
             {

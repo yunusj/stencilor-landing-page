@@ -16,7 +16,7 @@ export default class Navigation extends Component {
                      </Menu.Item>);
                   })}
                   <Menu.Item key={`login`} >
-                     <Button type={`primary`}>Login</Button>
+                     <Button ghost>Login</Button>
                   </Menu.Item>
                </Menu>
             </nav>
