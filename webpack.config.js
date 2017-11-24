@@ -4,7 +4,7 @@ const lessToJs = require('less-vars-to-js');
 
 let publicDir = path.resolve('../../public');
 let currentFolder = __dirname.split(path.sep).pop();
-let outputDir = path.join(__dirname, '../', '../', 'public', currentFolder, 'assets', 'js');
+let outputDir = path.join(__dirname, '../', '../', 'sub-apps', currentFolder ,'public', 'assets', 'js');
 
 
 const themeVariables = lessToJs(fs.readFileSync(path.join(__dirname, 'src/CSS/ANT.less'), 'utf8'));
