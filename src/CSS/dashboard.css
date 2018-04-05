@@ -1,0 +1,27 @@
+
+.body{
+    background-image: url("../Assets/images/Network-Graph-vector.png");
+    background-size: 100% 100%;
+    /* height: 300px     */
+    width: 100vw;
+    height: 100vh
+
+}
+.atom{
+    font-size: 3.5vw;
+    /* font-weight: bold; */
+    color: black;
+    font-family: Arial, Helvetica, sans-serif ;
+
+    width: 3vw;
+    height: 3vw
+
+}
+.circle{
+    font-size: 1vw;
+    /* font-weight: bold; */
+    color: black;
+    font-family: Arial, Helvetica, sans-serif ;
+    width: 3.8vw;
+    height: 3.8vw
+}
