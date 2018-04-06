@@ -79,15 +79,13 @@ class MainContainer extends Component {
 					top: '88.6%',
 					left: '0.5vw',
 					transform: 'translate(0%, -50%)',
-				}}>4
+				}}>
 					<table>
 						<tr>
 							<td >
-							<Button shape="circle" style={{borderWidth:0}} >								
-								<img src={circle} className="circle" />
-							</Button>
+							<Button shape="circle" style={{borderWidth:0}} ><div id="whowhatwhy"></div></Button>
 							</td>
-							<td className="circle" style={{ width: "200%" }}>
+							<td className="circle" style={{ width: "200%" ,paddingLeft:10}}>
 								Get in touch
 						</td>
 						</tr>
@@ -103,11 +101,9 @@ class MainContainer extends Component {
 					<table>
 						<tr>
 							<td >
-								<Button shape="circle" style={{borderWidth:0}}>
-								<img src={circle} className="circle"  onClick={this.showModal}/>
-								</Button>
+							<Button shape="circle" style={{borderWidth:0}} onClick={this.showModal}><div id="whowhatwhy"></div></Button>
 							</td>
-							<td className="circle" style={{ width: "200%" }}>
+							<td className="circle" style={{ width: "200%" ,paddingLeft:10}}>
 								Job Openeings
 						</td>
 						</tr>
@@ -115,19 +111,20 @@ class MainContainer extends Component {
 				</div>
 				<div style={{
 					position: 'fixed',
-					top: '13.4%',
-					left: '20.5vw',
-					transform: 'translate(0%, -50%)',
+					top: '10%',
+					left: '22vw',
+					transform: 'translate(0%, 0%)',
 					// width:"10vw"
 				}}>
 					<table>
 						<tr>
 							<td >
-								<Button shape="circle" style={{borderWidth:0}} >
+								{/* <Button shape="circle" style={{borderWidth:0}} >
 								<img src={circle} className="circle" />
-								</Button>
+								</Button> */}
+								<Button shape="circle" style={{borderWidth:0}}><div id="whowhatwhy"></div></Button>
 							</td>
-							<td className="circle" style={{ width: "200%" }} >
+							<td className="circle" style={{ width: "200%",paddingLeft:10 }} >
 								Who? what? Why?
 						</td>
 						</tr>
