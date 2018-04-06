@@ -77,7 +77,7 @@ class MainContainer extends Component {
 				<div style={{
 					position: 'fixed',
 					top: '88.6%',
-					left: '0.5vw',
+					left: '1.07vw',
 					transform: 'translate(0%, -50%)',
 				}}>
 					<table>
@@ -95,7 +95,7 @@ class MainContainer extends Component {
 				<div style={{
 					position: 'fixed',
 					top: '70.4%',
-					left: '52.5vw',
+					left: '53.5vw',
 					transform: 'translate(0%, -50%)',
 				}}>
 					<table>
@@ -111,8 +111,8 @@ class MainContainer extends Component {
 				</div>
 				<div style={{
 					position: 'fixed',
-					top: '10%',
-					left: '22vw',
+					top: '9%',
+					left: '22.3vw',
 					transform: 'translate(0%, 0%)',
 					// width:"10vw"
 				}}>
